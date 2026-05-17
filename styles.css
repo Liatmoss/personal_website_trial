@@ -9,7 +9,7 @@
   --text: #05071f;
   --accent: #3d3580;
   --surface: #ece9ff;
-  --surface-text: #3d3580;
+  --surface-text: #3d3580; /* intentionally matches --accent; kept separate in case surface tones diverge */
   --surface-border: #d4cefc;
   --text-secondary: #1a1a2e;
 }
