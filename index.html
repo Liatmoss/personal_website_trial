@@ -4,11 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liat Moss</title>
+    <script>
+      if (localStorage.getItem('theme') === 'dark')
+        document.documentElement.setAttribute('data-theme', 'dark');
+    </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="hero">
       <div class="hero__overlay"></div>
+      <button id="theme-toggle" class="hero__theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
       <div class="hero__content">
         <h1 class="hero__heading">Liat Moss</h1>
         <p class="hero__subtitle">Software engineer focused on practical AI tooling for engineering teams</p>
@@ -37,5 +42,15 @@
       </section>
     </main>
     <footer class="site-footer">Page created by Liat Moss using Github Copilot CLI, Github Issues and Github Actions</footer>
+    <script>
+      function toggleTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        document.getElementById('theme-toggle').textContent = isDark ? '🌙' : '☀️';
+      }
+      document.getElementById('theme-toggle').textContent =
+        document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    </script>
   </body>
 </html>
