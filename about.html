@@ -6,7 +6,9 @@
     <title>About Me – Liat Moss</title>
     <script>
       try {
-        if (localStorage.getItem('theme') === 'dark')
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark))
           document.documentElement.setAttribute('data-theme', 'dark');
       } catch (_) {}
     </script>
@@ -15,7 +17,7 @@
   <body>
     <header class="hero">
       <div class="hero__overlay"></div>
-      <button id="theme-toggle" type="button" class="hero__theme-toggle" onclick="toggleTheme()" aria-label="Switch to dark mode"></button>
+      <button id="theme-toggle" type="button" class="hero__theme-toggle" onclick="toggleTheme()" aria-label="Switch to dark mode">🌙</button>
       <div class="hero__content">
         <a href="index.html" class="hero__button hero__button--back" aria-label="Return to home page">Back to Main Page</a>
       </div>
